@@ -3,7 +3,6 @@
 using System.Windows;
 using System.Globalization;
 using System.Windows.Input;
-using System.Windows.Controls;
 
 namespace TotalAmounts
 {

@@ -7,6 +7,31 @@
         xmlns:local="clr-namespace:TotalAmounts"
         mc:Ignorable="d"
         Title="Total Amounts Calculator" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <SolidColorBrush x:Key="MainColor">#09b6fd</SolidColorBrush>
+        <ControlTemplate x:Key="Button" TargetType="{x:Type Button}">
+            <Border Name="Border" 
+                    Margin="10"
+                    BorderThickness="0" CornerRadius="30" 
+                    Background="{StaticResource MainColor}" 
+                    TextBlock.Foreground="White" TextBlock.FontSize="30" TextBlock.FontWeight="DemiBold">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                </ContentPresenter>
+            </Border>
+        </ControlTemplate>
+        <Style x:Key="HintLabel" TargetType="{x:Type Label}">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        </Style>
+        <Style x:Key="ResultLabel" TargetType="{x:Type Label}">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="35"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -21,9 +46,9 @@
         </Grid.ColumnDefinitions>
 
         <!-- Food Charge Input-->
-        <Label Grid.Row="0" Grid.Column="0" Margin="5" 
+        <Label Grid.Row="0" Grid.Column="0"
                Content="Please enter the food charge" 
-               FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+               Style="{StaticResource HintLabel}"/>
         <!-- CornerRadius and Background -->
         <Border Grid.Row="0" Grid.Column="1" Background="#f1f1f1" Margin="10" BorderBrush="#09b6fd" BorderThickness="1" CornerRadius="10">
             <TextBox TextAlignment="Center"
@@ -35,51 +60,39 @@
         </Border>
 
         <!-- Tip -->
-        <Label Grid.Row="1" Grid.Column="0" Margin="5" 
+        <Label Grid.Row="1" Grid.Column="0"
                Content="15% tip" 
-               FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-        <Label Grid.Row="1" Grid.Column="1" Margin="5"
+               Style="{StaticResource HintLabel}"/>
+        <Label Grid.Row="1" Grid.Column="1"
                Name="TipLabel"
-               FontSize="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+               Style="{StaticResource ResultLabel}"/>
 
         <!-- Tax -->
-        <Label Grid.Row="2" Grid.Column="0" Margin="5" 
+        <Label Grid.Row="2" Grid.Column="0"
                Content="7% sales tax" 
-               FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-        <Label Grid.Row="2" Grid.Column="1" Margin="5"
+               Style="{StaticResource HintLabel}"/>
+        <Label Grid.Row="2" Grid.Column="1"
                Name="TaxLabel"
-               FontSize="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+               Style="{StaticResource ResultLabel}"/>
 
         <!-- Total Amounts -->
-        <Label Grid.Row="3" Grid.Column="0" Margin="5" 
+        <Label Grid.Row="3" Grid.Column="0"
                Content="Total Amounts" 
-               FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-        <Label Grid.Row="3" Grid.Column="1" Margin="5"
+               Style="{StaticResource HintLabel}"/>
+        <Label Grid.Row="3" Grid.Column="1"
                Name="TotalLabel"
-               FontSize="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+               Style="{StaticResource ResultLabel}"/>
 
         <Button Grid.Row="4" Grid.Column="0"
-                Background="#09b6fd" BorderThickness="0" Margin="10"
-                FontSize="30" Foreground="White" FontWeight="DemiBold"
                 Name="Calculate" Content="Calculate"
+                Template="{StaticResource Button}" 
                 Click="Calculate_Click">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="30"></Setter>
-                </Style>
-            </Button.Resources>
         </Button>
 
         <Button Grid.Row="4" Grid.Column="1"
-                Background="#09b6fd" BorderThickness="0" Margin="10"
-                FontSize="30" Foreground="White" FontWeight="DemiBold"
                 Name="Clear" Content="Clear"
+                Template="{StaticResource Button}" 
                 Click="Clear_Click">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="30"></Setter>
-                </Style>
-            </Button.Resources>
         </Button>
     </Grid>
 </Window>
