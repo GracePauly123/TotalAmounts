@@ -1,11 +1,85 @@
-﻿<Window x:Class="TotalAmounts.MainWindow"
+﻿<!-- Group2: Jingfei Yao, Grace Pauly, Xiaotong Han -->
+<Window x:Class="TotalAmounts.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TotalAmounts"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Total Amounts Calculator" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!-- Food Charge Input-->
+        <Label Grid.Row="0" Grid.Column="0" Margin="5" 
+               Content="Please enter the food charge" 
+               FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+        <!-- CornerRadius and Background -->
+        <Border Grid.Row="0" Grid.Column="1" Background="#f1f1f1" Margin="10" BorderBrush="#09b6fd" BorderThickness="1" CornerRadius="10">
+            <TextBox TextAlignment="Center"
+                     Name="FoodChargeInput"
+                     FontSize="35" VerticalContentAlignment="Center"
+                     Background="Transparent" BorderThickness="0"
+                     PreviewKeyDown="FoodChargeInput_PreviewKeyDown">
+            </TextBox>
+        </Border>
+
+        <!-- Tip -->
+        <Label Grid.Row="1" Grid.Column="0" Margin="5" 
+               Content="15% tip" 
+               FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+        <Label Grid.Row="1" Grid.Column="1" Margin="5"
+               Name="TipLabel"
+               FontSize="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+        <!-- Tax -->
+        <Label Grid.Row="2" Grid.Column="0" Margin="5" 
+               Content="7% sales tax" 
+               FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+        <Label Grid.Row="2" Grid.Column="1" Margin="5"
+               Name="TaxLabel"
+               FontSize="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+        <!-- Total Amounts -->
+        <Label Grid.Row="3" Grid.Column="0" Margin="5" 
+               Content="Total Amounts" 
+               FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+        <Label Grid.Row="3" Grid.Column="1" Margin="5"
+               Name="TotalLabel"
+               FontSize="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+        <Button Grid.Row="4" Grid.Column="0"
+                Background="#09b6fd" BorderThickness="0" Margin="10"
+                FontSize="30" Foreground="White" FontWeight="DemiBold"
+                Name="Calculate" Content="Calculate"
+                Click="Calculate_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="30"></Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="4" Grid.Column="1"
+                Background="#09b6fd" BorderThickness="0" Margin="10"
+                FontSize="30" Foreground="White" FontWeight="DemiBold"
+                Name="Clear" Content="Clear"
+                Click="Clear_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="30"></Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>
