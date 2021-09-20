@@ -13,19 +13,19 @@ namespace TotalAmounts
     public partial class MainWindow : Window
     {
         // food charge
-        private float foodCharge;
+        private decimal foodCharge;
 
         // amount of a 15% tip
-        private float tip;
+        private decimal tip;
 
         // 7% sales tax
-        private float tax;
+        private decimal tax;
 
         // total amounts
-        private float total;
+        private decimal total;
 
-        private static readonly float TIP_PERCENT = 0.15F;
-        private static readonly float TAX_PERCENT = 0.07F;
+        private static readonly decimal TIP_PERCENT = 0.15M;
+        private static readonly decimal TAX_PERCENT = 0.07M;
 
         private readonly CultureInfo culture = new("en-us");
 
@@ -43,7 +43,7 @@ namespace TotalAmounts
             try
             {
                 string foodChargeString = FoodChargeInput.Text;
-                foodCharge = float.Parse(foodChargeString, culture);
+                foodCharge = decimal.Parse(foodChargeString, culture);
 
                 CalculateAmounts();
                 UpdateLabelContent();
@@ -56,7 +56,7 @@ namespace TotalAmounts
 
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
-            foodCharge = 0F;
+            foodCharge = 0M;
             FoodChargeInput.Text = "";
 
             CalculateAmounts();
