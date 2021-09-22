@@ -1,15 +1,13 @@
 ﻿// Group2: Jingfei Yao, Grace Pauly, Xiaotong Han.
 
 using System.Windows;
-using System.Globalization;
-using System.Windows.Input;
 
+/// Group 2/9 Problem – Tip, Tax and Total
+/// Create an application that lets the user enter the food charge for a meal at a restaurant.
+/// When a button is clicked, the application should calculate and display the amount of a 15 percent tip, 
+/// 7 percent sales tax, and the total of all three amounts.
 namespace TotalAmounts
 {
-    /// Group 2/9 Problem – Tip, Tax and Total
-    /// Create an application that lets the user enter the food charge for a meal at a restaurant.
-    /// When a button is clicked, the application should calculate and display the amount of a 15 percent tip, 
-    /// 7 percent sales tax, and the total of all three amounts.
     public partial class MainWindow : Window
     {
         // food charge
@@ -24,10 +22,8 @@ namespace TotalAmounts
         // total amounts
         private decimal total;
 
-        private static readonly decimal TIP_PERCENT = 0.15M;
-        private static readonly decimal TAX_PERCENT = 0.07M;
-
-        private readonly CultureInfo culture = new("en-us");
+        private const decimal TIP_PERCENT = (decimal)0.15;
+        private const decimal TAX_PERCENT = (decimal)0.07;
 
         public MainWindow()
         {
@@ -43,7 +39,7 @@ namespace TotalAmounts
             try
             {
                 string foodChargeString = FoodChargeInput.Text;
-                foodCharge = decimal.Parse(foodChargeString, culture);
+                foodCharge = decimal.Parse(foodChargeString);
 
                 CalculateAmounts();
                 UpdateLabelContent();
@@ -56,25 +52,13 @@ namespace TotalAmounts
 
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
-            foodCharge = 0M;
+            foodCharge = (decimal)0.0;
             FoodChargeInput.Text = "";
 
             CalculateAmounts();
             UpdateLabelContent();
 
             _ = FoodChargeInput.Focus();
-        }
-
-        private void FoodChargeInput_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                Calculate.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));
-            }
-            else if (e.Key == Key.Escape)
-            {
-                Clear.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));
-            }
         }
 
         private void CalculateAmounts()
@@ -86,9 +70,9 @@ namespace TotalAmounts
 
         private void UpdateLabelContent()
         {
-            TipLabel.Content = tip.ToString("C", culture);
-            TaxLabel.Content = tax.ToString("C", culture);
-            TotalLabel.Content = total.ToString("C", culture);
+            TipLabel.Content = tip.ToString("C");
+            TaxLabel.Content = tax.ToString("C");
+            TotalLabel.Content = total.ToString("C");
         }
     }
 }
