@@ -9,7 +9,7 @@
         Title="Total Amounts Calculator" Height="600" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="LightGray">
     <Window.Resources>
         <Style x:Key="HintLabel" TargetType="{x:Type Label}">
-            <Setter Property="Margin" Value="15 0"/>
+            <Setter Property="Margin" Value="15, 0"/>
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
