@@ -46,6 +46,10 @@ namespace TotalAmounts
             }
             catch
             {
+                foodCharge = (decimal)0.0;
+                CalculateAmounts();
+                UpdateLabelContent();
+
                 _ = MessageBox.Show("Please enter a valid food charge!", caption: "Input Error!");
             }
         }

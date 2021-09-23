@@ -8,9 +8,6 @@
         mc:Ignorable="d"
         Title="Total Amounts Calculator" Height="600" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="LightGray">
     <Window.Resources>
-        <Style x:Key="ShopInfoLabel" TargetType="{x:Type Label}">
-            <Setter Property="FontSize" Value="12"/>
-        </Style>
         <Style x:Key="HintLabel" TargetType="{x:Type Label}">
             <Setter Property="Margin" Value="15 0"/>
             <Setter Property="FontSize" Value="15"/>
@@ -49,7 +46,7 @@
 
         <Image Source="Images/McDonaldsLogo.jpg" 
                Grid.Row="0" Grid.Column="0" 
-               Margin="10, 10" HorizontalAlignment="Left" Width="60" Stretch="Uniform">
+               Margin="10, 10" HorizontalAlignment="Left" Stretch="Uniform">
         </Image>
 
         <Image Source="Images/BarcodePicture.jpg" 
@@ -57,30 +54,26 @@
                Stretch="Uniform">
         </Image>
 
-        <Label
-            Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" 
-            FontSize="10" Margin="0, 15, 0, 0"
-            VerticalContentAlignment="Top" HorizontalContentAlignment="Center">
-            <TextBlock TextWrapping="Wrap" 
-                       TextAlignment="Center">
+        <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                   FontSize="10" Margin="0, 15, 0, 0"
+                   TextWrapping="Wrap" TextAlignment="Center">
                 McDonalds
                 <LineBreak/>
                 Dundas St West
                 <LineBreak/>
                 Tel # : 647-908-4321
-            </TextBlock>
-        </Label>
+        </TextBlock>
 
         <!-- Food Charge Input-->
         <Label Grid.Row="3" Grid.Column="0"
                Content="Food charge" 
                Style="{StaticResource HintLabel}"/>
-        <!-- CornerRadius and Background -->
+        <!-- Background -->
         <TextBox Grid.Row="3" Grid.Column="1" 
                  TextAlignment="Center"
                  Name="FoodChargeInput"
                  FontSize="15" VerticalContentAlignment="Center"
-                 Background="White" BorderThickness="0" Margin="20 2">
+                 Background="White" BorderThickness="0" Margin="20, 2">
         </TextBox>
 
         <!-- Tip -->
